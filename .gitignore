@@ -146,3 +146,5 @@ pip-selfcheck.json
 
 
 # End of https://www.gitignore.io/api/python,django,visualstudiocode
+heroes_api/__pycache__/
+*.swp
