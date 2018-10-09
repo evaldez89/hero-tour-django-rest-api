@@ -7,3 +7,7 @@ from .serializers import HeroSerializer
 class HeroViewSet(viewsets.ModelViewSet):
     queryset = Hero.objects.all()
     serializer_class = HeroSerializer
+
+    def update(self, instance, validated_data):
+        from pprint import pprint as pp
+        pp(validated_data)
