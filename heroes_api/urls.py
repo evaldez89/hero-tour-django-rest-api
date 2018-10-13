@@ -16,14 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from heroes.views import HeroViewSet
-
+from heroes import views
 
 router = routers.DefaultRouter()
-router.register(r'heroes', HeroViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'', include(router.urls)),
-    # path(r'api-auth/', include('rest_framework.urls')),
+    path('', include('heroes.urls')),
+    path('', include(router.urls)),
+    path(r'api-auth/', include('rest_framework.urls')),
 ]
