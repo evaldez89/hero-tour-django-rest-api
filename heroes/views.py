@@ -48,3 +48,10 @@ def hero_detail(request, pk):
 	elif request.method == 'DELETE':
 		hero.delete()
 		return HttpResponse(status=204)
+
+@csrf_exempt
+def hero_search(request, name):
+	if request.method == 'GET':
+		heroes = Hero.objects.filter(name__contains=name)
+		serializer = HeroSerializer(heroes, many=True)
+		return JsonResponse(serializer.data, safe=False)
